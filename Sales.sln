@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Infraestructure", "Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.API", "Sales.API\Sales.API.csproj", "{4A970C78-B4D8-4D3B-8F08-FF15CB69BF6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.IOC", "Sales.IOC\Sales.IOC.csproj", "{6D8AE2D6-4E2C-408F-ABEE-DF590A21C16A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4A970C78-B4D8-4D3B-8F08-FF15CB69BF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A970C78-B4D8-4D3B-8F08-FF15CB69BF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A970C78-B4D8-4D3B-8F08-FF15CB69BF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D8AE2D6-4E2C-408F-ABEE-DF590A21C16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8AE2D6-4E2C-408F-ABEE-DF590A21C16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8AE2D6-4E2C-408F-ABEE-DF590A21C16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8AE2D6-4E2C-408F-ABEE-DF590A21C16A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

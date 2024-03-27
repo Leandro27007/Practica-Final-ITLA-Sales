@@ -3,7 +3,7 @@ using Sales.AppServices.Dtos;
 
 namespace Sales.AppServices.Contracts
 {
-    internal interface INegocioService
+    public interface INegocioService
     {
 
         public Task<ServiceResult> GetNegocio();

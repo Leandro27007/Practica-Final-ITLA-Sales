@@ -41,9 +41,16 @@ namespace Sales.AppServices.Services
             return result;
         }
 
-        public Task<ServiceResult> GetNegocio()
+        public async Task<ServiceResult> GetNegocio()
         {
-            throw new NotImplementedException();
+            ServiceResult serviceResult = new();
+
+           var negocios = await _negocioDb.GetAll();
+
+            serviceResult.Success = true;
+            serviceResult.Data = negocios;
+
+            return serviceResult;
         }
     }
 }

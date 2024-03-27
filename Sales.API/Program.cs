@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Sales.Infraestructure.context;
+using Sales.IOC.NegocioDependencies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +11,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddDbContext<SalesContext>(o => o
+                .UseSqlServer(builder.Configuration.GetConnectionString("Sales")));
+
+builder.Services.AddDependency();
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
