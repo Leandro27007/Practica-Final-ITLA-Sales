@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sales.Infraestructure.context;
 using Sales.Infraestructure.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sales.Infraestructure.Dao
 {

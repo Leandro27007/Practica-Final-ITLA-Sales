@@ -2,11 +2,11 @@
 
 namespace Sales.Domain.Entities
 {
-    public class NumeroCorrelativo : BaseEntity
+    public class NumeroCorrelativo : BaseAuditable, IActivable
     {
         public int UltimoNumero { get; set; }
         public int CantidadDigitos { get; set; }
         public string Gestion { get; set; }
-        public DateTime FechaActualizacion { get; set; }
+        public bool EsActivo { get; set; }
     }
 }

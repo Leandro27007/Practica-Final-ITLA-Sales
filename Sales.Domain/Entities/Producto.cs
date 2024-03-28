@@ -2,7 +2,7 @@
 
 namespace Sales.Domain.Entities
 {
-    public class Producto : BaseEntity
+    public class Producto : BaseAuditable, IActivable
     {
         public string CodigoBarra { get; set; }
         public string Marca { get; set; }
@@ -12,5 +12,6 @@ namespace Sales.Domain.Entities
         public string UrlImagen { get; set; }
         public string NombreImagen { get; set; }
         public decimal Precio { get; set; }
+        public bool EsActivo { get; set; }
     }
 }

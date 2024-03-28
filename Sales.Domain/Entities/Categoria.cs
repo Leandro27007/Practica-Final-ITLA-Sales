@@ -2,9 +2,10 @@
 
 namespace Sales.Domain.Entities
 {
-    public class Categoria : BaseEntity
+    public class Categoria : BaseAuditable, IActivable
     {
         public string Descripcion { get; set; }
+        public bool EsActivo { get; set; }
 
     }
 }

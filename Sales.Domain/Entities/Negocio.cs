@@ -2,7 +2,7 @@
 
 namespace Sales.Domain.Entities
 {
-    public class Negocio : BaseEntity
+    public class Negocio : BaseAuditable
     {
         public string UrlLogo { get; set; }
         public string NombreLogo { get; set; }
@@ -13,6 +13,7 @@ namespace Sales.Domain.Entities
         public string Telefono { get; set; }
         public string PorcentajeImpuesto { get; set; }
         public string SimboloMoneda { get; set; }
+
 
     }
 }
