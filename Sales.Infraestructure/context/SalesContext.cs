@@ -23,9 +23,11 @@ namespace Sales.Infraestructure.context
         public DbSet<Usuario> Usuario{ get; set; }
         public DbSet<Venta> Venta{ get; set; }
 
-
-
         #endregion
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

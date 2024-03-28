@@ -11,7 +11,7 @@ namespace Sales.Domain.Entities
         public string Correo { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
-        public string PorcentajeImpuesto { get; set; }
+        public decimal PorcentajeImpuesto { get; set; }
         public string SimboloMoneda { get; set; }
 
 
