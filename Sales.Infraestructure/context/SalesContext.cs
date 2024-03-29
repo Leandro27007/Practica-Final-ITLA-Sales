@@ -17,7 +17,7 @@ namespace Sales.Infraestructure.context
         public DbSet<Negocio> Negocio { get; set; }
         public DbSet<NumeroCorrelativo> NumeroCorrelativo { get; set; }
         public DbSet<Producto> Producto { get; set; }
-        public DbSet<Rol> rol{ get; set; }
+        public DbSet<Rol> Rol{ get; set; }
         public DbSet<RolMenu> RolMenu{ get; set; }
         public DbSet<TipoDocumentoVenta> TipoDocumentoVenta{ get; set; }
         public DbSet<Usuario> Usuario{ get; set; }

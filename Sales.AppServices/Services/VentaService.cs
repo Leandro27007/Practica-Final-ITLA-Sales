@@ -54,6 +54,13 @@ namespace Sales.AppServices.Services
             ServiceResult result = new ServiceResult();
             Random rnd = new Random();
 
+            //Default Document Type
+            if (ventaDTO.IdTipoDocumentoVenta == 0)
+                ventaDTO.IdTipoDocumentoVenta = 1;   
+            //Default User, this is only for test. shold be removed on production.
+            if (ventaDTO.IdUsuario == 0)
+                ventaDTO.IdTipoDocumentoVenta = 1;
+
             Venta venta = new Venta()
             {
                 NumeroVenta = rnd.Next(100000,900000).ToString(),
@@ -85,7 +92,7 @@ namespace Sales.AppServices.Services
             catch (Exception ex)
             {
                 result.Success = false;
-                result.Message = "Ocurrio un error mientras se guardaba la venta.";
+                result.Message = ex.Message;
                 return result;
             }
 

@@ -43,8 +43,6 @@ namespace Sales.Infraestructure.Dao
 
             this.entities.Add(entity);
 
-            await this.Commit();
-
             result.Success = true;
             return result;
         }

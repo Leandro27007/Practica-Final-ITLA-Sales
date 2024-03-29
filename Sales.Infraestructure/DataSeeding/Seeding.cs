@@ -21,19 +21,66 @@ namespace Sales.Infraestructure.DataSeeding
 
                 db.Database.EnsureCreated();
 
-                if ((await db.TipoDocumentoVenta.AnyAsync()))
-                    return;
 
-                TipoDocumentoVenta tipoDoc = new()
+                //TIPO DOCUMENTO
+                if (!(await db.TipoDocumentoVenta.AnyAsync()))
                 {
-                    Descripcion = "Cedula",
-                    EsActivo = true,
-                    FechaRegistro = DateTime.UtcNow,
-                };
+                    TipoDocumentoVenta tipoDoc = new()
+                    {
+                        Descripcion = "Cedula",
+                        EsActivo = true,
+                        FechaRegistro = DateTime.UtcNow,
+                    };
 
-                db.TipoDocumentoVenta.Add(tipoDoc);
+                    db.TipoDocumentoVenta.Add(tipoDoc);
 
-                await db.SaveChangesAsync();
+                    await db.SaveChangesAsync();
+                }
+
+
+
+                //ROL
+
+                if (!(await db.Rol.AnyAsync()))
+                {
+                    Rol rol = new()
+                    {
+                        Descripcion = "Default Rol",
+                        EsActivo = true,
+                        FechaRegistro = DateTime.UtcNow,
+                    };
+
+                    db.Rol.Add(rol);
+
+                    await db.SaveChangesAsync();
+                }
+
+
+                //USUARIO
+
+                if (!(await db.Usuario.AnyAsync()))
+                {
+                    Usuario usuario = new()
+                    {
+                        Nombre = "Leandro",
+                        Correo = "Leandro@gmail.com",
+                        Clave = "123456",
+                        Telefono = "809-000-0000",
+                        IdRol = 1,
+                        EsActivo = true,
+                        FechaRegistro = DateTime.UtcNow,
+                    };
+
+                    db.Usuario.Add(usuario);
+
+                    await db.SaveChangesAsync();
+                }
+
+
+            
+
+
+
             }
             catch (Exception ex)
             {
