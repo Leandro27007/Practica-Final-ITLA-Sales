@@ -14,8 +14,10 @@ namespace Sales.AppServices.Services
         {
             this.ventaDB = ventaDB;
         }
+
         public async Task<ServiceResult> GetVenta(string numeroVenta)
-        {               
+        {      
+            
             ServiceResult result = new ServiceResult();
             try
             {

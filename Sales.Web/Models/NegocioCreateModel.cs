@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Sales.AppServices.Dtos
+namespace Sales.Web.Models
 {
-    public class NegocioAddDTO
+    public class NegocioCreateModel
     {
         public string UrlLogo { get; set; }
         public string NombreLogo { get; set; }
@@ -14,5 +14,6 @@ namespace Sales.AppServices.Dtos
         public decimal PorcentajeImpuesto { get; set; }
         [MaxLength(5)]
         public string SimboloMoneda { get; set; }
+
     }
 }

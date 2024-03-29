@@ -64,7 +64,7 @@ namespace Sales.AppServices.Services
         {
             ServiceResult serviceResult = new();
 
-           var negocios = await _negocioDb.GetAll();
+            var negocios = await _negocioDb.GetAll();
 
             serviceResult.Success = true;
             serviceResult.Data = negocios;
