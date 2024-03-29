@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sales.Infraestructure.context;
+using Sales.Infraestructure.DataSeeding;
 using Sales.IOC.NegocioDependencies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<SalesContext>(o => o
 
 builder.Services.AddDependency();
 
+await Seeding.Seed(builder.Services.BuildServiceProvider());
 
 var app = builder.Build();
 
