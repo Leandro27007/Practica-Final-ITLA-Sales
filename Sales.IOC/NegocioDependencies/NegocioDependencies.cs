@@ -13,7 +13,9 @@ namespace Sales.IOC.NegocioDependencies
         public static void AddDependency(this IServiceCollection services)
         {
             services.AddTransient<INegocioService, NegocioService>();
+            services.AddTransient<IVentaService, VentaService>();
             services.AddScoped<INegocioDb, NegocioDb>();
+            services.AddScoped<IVentaDb, VentaDb>();
         }
     }
 }

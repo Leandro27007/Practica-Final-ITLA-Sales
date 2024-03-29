@@ -3,9 +3,10 @@ using Sales.AppServices.Dtos;
 
 namespace Sales.AppServices.Contracts
 {
-    internal interface IVentaService
+    public interface IVentaService
     {
-        public Task<ServiceResult> GetVenta(int numeroVenta);
+        public Task<ServiceResult> GetVenta(string numeroVenta);
+        public Task<ServiceResult> GetVentas();
         public Task<ServiceResult> HacerVenta(HacerVentaDTO venta);
 
     }
