@@ -50,6 +50,24 @@ namespace Sales.AppServices.Services
                 return result;
             }
 
+        }    
+        public async Task<ServiceResult> GetVentaDetalle(string numeroVenta)
+        {
+            ServiceResult result = new ServiceResult();
+            try
+            {
+               var ventas =  await ventaDB.GetVentaDetalle(numeroVenta);
+                result.Data = ventas;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result.Success = false;
+                result.Message = "Ocurrio un error mientras se recuperaban los datos.";
+                return result;
+            }
+
         }
 
         public async Task<ServiceResult> HacerVenta(HacerVentaDTO ventaDTO)

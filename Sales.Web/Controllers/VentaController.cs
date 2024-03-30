@@ -35,7 +35,14 @@ namespace Sales.Web.Controllers
         public IActionResult CrearVenta()
         {
             return View();
-        }       
+        }
+
+        public IActionResult GetDetails()
+        {
+
+
+            return View();
+        }
         public IActionResult AgregarProducto(VentaCreateModel model)
         {
             return View();

@@ -26,6 +26,17 @@ namespace Sales.API.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetVentaDetalle{numeroVenta}")]
+        public async Task<IActionResult> GetVentaDetalle(string numeroVenta)
+        {
+            var result = await this._ventaService.GetVentaDetalle(numeroVenta);
+            if (!result.Success)
+                return BadRequest(result);
+
+
+            return Ok(result);
+        }
+
         [HttpPost("CreateVenta")]
         public async Task<IActionResult> CreateVenta([FromBody] HacerVentaDTO venta)
         {

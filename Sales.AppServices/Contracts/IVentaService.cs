@@ -7,6 +7,7 @@ namespace Sales.AppServices.Contracts
     {
         public Task<ServiceResult> GetVenta(string numeroVenta);
         public Task<ServiceResult> GetVentas();
+        public Task<ServiceResult> GetVentaDetalle(string numeroVenta);
         public Task<ServiceResult> HacerVenta(HacerVentaDTO venta);
 
     }

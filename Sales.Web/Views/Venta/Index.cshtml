@@ -81,8 +81,8 @@
                 @Html.DisplayFor(modelItem => item.idUsuarioCreacion)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                 @Html.ActionLink("Ver Detalle", "GetDetails", new { id = item.numeroVenta }) |
+
             </td>
         </tr>
 }
