@@ -25,9 +25,9 @@ namespace Sales.Web.Controllers
             }
 
 
-            var negocios = result.data;
+            var ventas = result.data;
 
-            return View(negocios);
+            return View(ventas);
         }
 
       
@@ -37,11 +37,21 @@ namespace Sales.Web.Controllers
             return View();
         }
 
-        public IActionResult GetDetails()
+        public async Task<IActionResult> GetDetails(string numeroVenta)
         {
 
+            var result = await ventaService.GetVentaDetalle(numeroVenta);
 
-            return View();
+            if (!result.success)
+            {
+                ViewBag.Message = result.message;
+                return View();
+            }
+
+
+            var detalles = result.data;
+
+            return View(detalles);
         }
         public IActionResult AgregarProducto(VentaCreateModel model)
         {

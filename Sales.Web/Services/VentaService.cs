@@ -62,6 +62,42 @@ namespace Sales.Web.Services
             return result;
         }
 
+        public async Task<ServiceResult<List<VentaDetalleResponse>>> GetVentaDetalle(string numneroVenta)
+        {
+            ServiceResult<List<VentaDetalleResponse>> result = new();
+            try
+            {
+                using (var httpClient = this.clientFactory.CreateClient())
+                {
+                    var url = $"{this.baseUrl}/Venta/GetVentaDetalle"+ numneroVenta; 
+
+                    using (var response = await httpClient.GetAsync(url))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string resp = await response.Content.ReadAsStringAsync();
+                            result = JsonSerializer.Deserialize<ServiceResult<List<VentaDetalleResponse>>>(resp);
+                        }
+                        else
+                        {
+                            result.success = false;
+                            result.message = "Error conectandose al end point de Get Venta";
+
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.message = "Error obteniendo la Venta";
+                this.logger.LogError(result.message, ex.ToString());
+            }
+            return result;
+        }
+
         public async Task<ServiceResult<dynamic>> HacerVenta(VentaCreateModel venta)
         {
             ServiceResult<dynamic> result = new ServiceResult<dynamic>();
