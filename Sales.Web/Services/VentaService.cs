@@ -20,11 +20,7 @@ namespace Sales.Web.Services
             this.baseUrl = configuration["apiConfig:baseUrl"];
         }
    
-        public async Task<ServiceResult<dynamic>> GetVenta(string numeroVenta)
-        {
-            throw new NotImplementedException();
 
-        }
 
         public async Task<ServiceResult<List<VentaResponse>>> GetVentas()
         {
