@@ -7,7 +7,7 @@
 <h1>Negocio List</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddNegocio">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -73,7 +73,8 @@
                 @Html.DisplayFor(modelItem => item.simboloMoneda)
             </td>
             <td>
-                    @Html.ActionLink("Edit", "Edit", new { model = item }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Create", "AddNegocio", new { id = item.id }) |
             </td>
         </tr>
 }

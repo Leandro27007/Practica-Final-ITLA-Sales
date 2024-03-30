@@ -25,6 +25,16 @@ namespace Sales.API.Controllers
 
 
             return Ok(result);
+        }    
+        [HttpGet("GetNegocioById{id}")]
+        public async Task<IActionResult> GetNegocioById(int id)
+        {
+            var result = await this._negocioService.GetNegocioById(id);
+            if (!result.Success)
+                return BadRequest(result);
+
+
+            return Ok(result);
         }
 
         [HttpPost("SetNegocio")]

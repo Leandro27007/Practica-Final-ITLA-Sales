@@ -30,9 +30,45 @@ namespace Sales.Web.Controllers
             return View(negocios);
         }
 
-        public async Task<IActionResult> Edit(NegocioResponseModel model)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(model);
+
+
+            var result = await negocioService.GetNegocioById(id);
+
+            if (!result.success)
+            {
+                ViewBag.Message = result.message;
+                return View();
+            }
+
+
+            var negocio = result.data;
+
+
+            return View(negocio);
+        }
+
+
+        public IActionResult AddNegocio()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNegocio(NegocioCreateModel model)
+        {
+
+
+            var result = await negocioService.AddNegocio(model);
+
+            if (!result.success)
+            {
+                ViewBag.Message = result.message;
+                return View();
+            }
+
+            return RedirectToAction("Index");
         }
 
     }

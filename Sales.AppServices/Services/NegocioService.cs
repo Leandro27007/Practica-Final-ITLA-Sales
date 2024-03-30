@@ -23,7 +23,7 @@ namespace Sales.AppServices.Services
             try
             {
                 if (_negocioDb.Exists(x => x.Id != 0))
-                    throw new Exception("Ya esta registrado el negocio, no puedes agregar otro, Intenta editar el reciente.");
+                    throw new Exception("Ya hay un negocio registrado, no puedes agregar otro, Intenta editar el reciente.");
 
 
                 Negocio negocio = new()
@@ -43,6 +43,7 @@ namespace Sales.AppServices.Services
                 };
 
                 var dataResult = await _negocioDb.Save(negocio);
+                await _negocioDb.Commit();
                 result.Success = dataResult.Success;
                 result.Message = dataResult.Message;
 
@@ -71,5 +72,19 @@ namespace Sales.AppServices.Services
 
             return serviceResult;
         }
+
+        public async Task<ServiceResult> GetNegocioById(int id)
+        {
+            ServiceResult serviceResult = new();
+
+            var negocio = await _negocioDb.GetById(id);
+
+            serviceResult.Success = true;
+            serviceResult.Data = negocio;
+
+            return serviceResult;
+        }
+
+
     }
 }
