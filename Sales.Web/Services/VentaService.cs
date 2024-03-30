@@ -1,5 +1,6 @@
 ﻿using Sales.Web.Models;
 using Sales.Web.Models.Result;
+using System.Text;
 using System.Text.Json;
 
 namespace Sales.Web.Services
@@ -61,9 +62,51 @@ namespace Sales.Web.Services
             return result;
         }
 
-        public Task<ServiceResult<dynamic>> HacerVenta(VentaCreateModel venta)
+        public async Task<ServiceResult<dynamic>> HacerVenta(VentaCreateModel venta)
         {
-            throw new NotImplementedException();
+            ServiceResult<dynamic> result = new ServiceResult<dynamic>();
+            try
+            {
+                using (var httpClient = this.clientFactory.CreateClient())
+                {
+                    var url = $"{this.baseUrl}/Venta/CreateVenta";
+
+                    StringContent content = new StringContent(JsonSerializer.Serialize(venta), Encoding.UTF8, "application/json");
+                    string resp = string.Empty;
+                    using (var response = await httpClient.PostAsync(url, content))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            resp = await response.Content.ReadAsStringAsync();
+                            result = JsonSerializer.Deserialize<ServiceResult<dynamic>>(resp);
+                        }
+                        else
+                        {
+                            if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                            {
+                                resp = await response.Content.ReadAsStringAsync();
+                                result = JsonSerializer.Deserialize<ServiceResult<dynamic>>(resp);
+                                return result;
+                            }
+                            else
+                            {
+                                result.success = false;
+                                result.message = "Error conectandose al end point de Save Venta Crear.";
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                result.success = false;
+                result.message = "Error guardando la venta.";
+                this.logger.LogError(result.message, ex.ToString()); ;
+            }
+            return result;
         }
     }
+    
 }

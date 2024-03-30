@@ -32,13 +32,17 @@ namespace Sales.Web.Controllers
 
       
 
-        public IActionResult AddNegocio()
+        public IActionResult CrearVenta()
+        {
+            return View();
+        }       
+        public IActionResult AgregarProducto(VentaCreateModel model)
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNegocio(VentaCreateModel model)
+        public async Task<IActionResult> GuardarVenta(VentaCreateModel model)
         {
 
 
