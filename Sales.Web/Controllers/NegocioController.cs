@@ -49,7 +49,6 @@ namespace Sales.Web.Controllers
             return View(negocio);
         }
 
-
         public IActionResult AddNegocio()
         {
             return View();

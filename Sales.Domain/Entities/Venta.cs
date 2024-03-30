@@ -10,7 +10,7 @@ namespace Sales.Domain.Entities
         public int IdUsuario { get; set; }
         public string CocumentoCliente { get; set; }
         public string NombreCliente { get; set; }
-        public string SubTotal { get; set; }
+        public string? SubTotal { get; set; }
         public decimal ImpuestoTotal { get; set; }
         public decimal Total { get; set; }
         public List<DetalleVenta> DetalleVentas { get; set; }

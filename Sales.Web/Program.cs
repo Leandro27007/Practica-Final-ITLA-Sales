@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<INegocioService, NegocioService>();
+builder.Services.AddTransient<IVentaService, VentaService>();
 builder.Services.AddHttpClient(); 
 
 var app = builder.Build();

@@ -38,7 +38,8 @@ namespace Sales.AppServices.Services
             ServiceResult result = new ServiceResult();
             try
             {
-                result.Data = await ventaDB.GetAll();
+               var ventas =  await ventaDB.GetAll();
+                result.Data = ventas;
                 return result;
             }
             catch (Exception ex)
